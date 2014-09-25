@@ -18,16 +18,10 @@ class YourClass
   end
 
   private def api
-    @api ||= begin
-      api = BuckyBox::API
-
-      api.headers(
-        "API-Key" => "your API key",
-        "API-Secret" => "your API secret",
-      )
-
-      api
-    end
+    @api ||= BuckyBox::API.new(
+      "API-Key" => "your API key",
+      "API-Secret" => "your API secret",
+    )
   end
 
 end
