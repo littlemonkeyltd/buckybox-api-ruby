@@ -1,4 +1,6 @@
+require "cgi"
 require "httparty"
+require "crazy_money"
 require "super_recursive_open_struct"
 
 module BuckyBox
@@ -10,7 +12,6 @@ module BuckyBox
         include HTTParty
         format :json
         base_uri "https://api.buckybox.com/v0"
-        # base_uri "http://api.buckybox.dev:3000/v0"
 
         class << self
           def boxes(params = {embed: "extras,images,box_items"}, options = {})
@@ -33,12 +34,12 @@ module BuckyBox
             query :get, "/webstore"
           end
 
-          def customer(id, params = {}, options = {})
-            query :get, "/customers/#{id}", params, options, account_balance: CrazyMoney
-          end
-
           def customers(params = {}, options = {})
             query :get, "/customers", params, options, account_balance: CrazyMoney
+          end
+
+          def customer(id, params = {}, options = {})
+            query :get, "/customers/#{id}", params, options, account_balance: CrazyMoney
           end
 
           def authenticate_customer(params = {}, options = {})
@@ -93,7 +94,7 @@ module BuckyBox
             }
 
             if type == :get # NOTE: only cache GET method
-              cache_key = [uri, params.to_query].join
+              cache_key = [uri, to_query(params)].join
 
               @cache ||= {}
               @cache[cache_key] ||= query_fresh.call
@@ -114,6 +115,16 @@ module BuckyBox
               end
 
               object
+            end
+          end
+
+          def to_query(hash)
+            if hash.empty?
+              ''
+            else
+              hash.map do |key, value|
+                "#{CGI.escape(key.to_s)}=#{CGI.escape(value)}"
+              end.sort!.join("&")
             end
           end
         end
