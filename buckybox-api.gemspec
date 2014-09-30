@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "buckybox-api"
-  spec.version       = "1.1.0"
+  spec.version       = "1.2.0"
   spec.authors       = ["Cédric Félizard"]
   spec.email         = ["cedric@felizard.fr"]
   spec.summary       = %q{RubyGem wrapper for the Bucky Box API}
