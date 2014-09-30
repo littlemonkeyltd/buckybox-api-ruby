@@ -9,7 +9,7 @@ module BuckyBox
 
     include HTTParty
     format :json
-    base_uri "https://api.buckybox.com/v0"
+    base_uri "https://api.buckybox.com/v1"
 
     def initialize(headers)
       self.class.headers(headers)
