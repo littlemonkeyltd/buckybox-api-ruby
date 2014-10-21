@@ -95,7 +95,7 @@ module BuckyBox
       }
 
       if type == :get # NOTE: only cache GET method
-        cache_key = [uri, to_query(params)].join
+        cache_key = [self.class.headers.hash, uri, to_query(params)].join
 
         @cache ||= {}
         @cache[cache_key] ||= query_fresh.call
