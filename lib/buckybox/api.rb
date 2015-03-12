@@ -5,7 +5,8 @@ require "super_recursive_open_struct"
 
 module BuckyBox
   class API
-    ResponseError = Class.new(Exception)
+    ResponseError = Class.new(Exception) # generic error
+    NotFoundError = Class.new(Exception)
 
     include HTTParty
     format :json
@@ -67,8 +68,15 @@ module BuckyBox
       unless [200, 201].include? response.code
         message = response.parsed_response["message"] || response.parsed_response
         message = "Error #{response.code} - #{message}"
-        raise ResponseError, message
+
+        raise exception_type(response.code), message
       end
+    end
+
+    def exception_type(http_code)
+      {
+        404 => NotFoundError,
+      }.fetch(http_code, ResponseError)
     end
 
     def query(type, uri, params = {}, options = {}, types = {})

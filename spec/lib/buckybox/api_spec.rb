@@ -40,6 +40,10 @@ RSpec.describe BuckyBox::API, :vcr do
   describe "#box" do
     subject { api.box(ENV.fetch("BUCKYBOX_BOX_ID"), {}) }
     it_behaves_like "a valid API response"
+
+    it "raises NotFoundError if not found" do
+      expect { api.box(0) }.to raise_error BuckyBox::API::NotFoundError
+    end
   end
 
   describe "#delivery_services" do
