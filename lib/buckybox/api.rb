@@ -62,6 +62,10 @@ module BuckyBox
       query :post, "/orders", json_order
     end
 
+    def flush_cache!
+      @cache = nil
+    end
+
   private
 
     def check_response!(response)
