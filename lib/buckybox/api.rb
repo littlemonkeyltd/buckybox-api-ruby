@@ -8,6 +8,22 @@ module BuckyBox
     ResponseError = Class.new(Exception) # generic error
     NotFoundError = Class.new(Exception)
 
+    class CachedResponse
+      attr_reader :response, :cached_at
+
+      def initialize(response)
+        @response, @cached_at = response, epoch
+      end
+
+      def expired?
+        epoch - cached_at > 60 # NOTE: cache responses for 60 seconds
+      end
+
+      private def epoch
+        Time.now.utc.to_i
+      end
+    end
+
     include HTTParty
     format :json
     base_uri "https://api.buckybox.com/v1"
@@ -107,10 +123,17 @@ module BuckyBox
       }
 
       if type == :get # NOTE: only cache GET method
-        cache_key = [self.class.headers.hash, uri, to_query(params)].join
-
         @cache ||= {}
-        @cache[cache_key] ||= query_fresh.call
+        cache_key = [self.class.headers.hash, uri, to_query(params)].join
+        cached_response = @cache[cache_key]
+
+        if cached_response && !cached_response.expired?
+          cached_response.response
+        else
+          response = query_fresh.call
+          @cache[cache_key] = CachedResponse.new(response)
+          response
+        end
       else
         query_fresh.call
       end
