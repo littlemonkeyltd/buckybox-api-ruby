@@ -32,7 +32,7 @@ module BuckyBox
       self.class.headers(headers)
     end
 
-    def boxes(params = {embed: "extras,images,box_items"}, options = {})
+    def boxes(params = {embed: "images"}, options = {})
       query :get, "/boxes", params, options, price: CrazyMoney
     end
 
