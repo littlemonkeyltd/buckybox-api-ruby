@@ -33,7 +33,7 @@ module BuckyBox
 
     include HTTParty
     format :json
-    base_uri ENDPOINTS.fetch(ENV.fetch("RAILS_ENV", "development").to_sym)
+    base_uri ENDPOINTS.fetch(ENV.fetch("RAILS_ENV", "production").to_sym)
 
     def initialize(headers)
       self.class.headers(headers)
