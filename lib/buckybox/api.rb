@@ -12,6 +12,7 @@ module BuckyBox
       production:  "https://api.buckybox.com/v1",
       staging:     "https://api-staging.buckybox.com/v1",
       development: "http://api.buckybox.local:3000/v1",
+      test:        "http://api.buckybox.local:3000/v1",
     }.freeze
 
     class CachedResponse
