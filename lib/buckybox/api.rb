@@ -8,6 +8,12 @@ module BuckyBox
     ResponseError = Class.new(Exception) # generic error
     NotFoundError = Class.new(Exception)
 
+    ENDPOINTS = {
+      production:  "https://api.buckybox.com/v1",
+      staging:     "https://api-staging.buckybox.com/v1",
+      development: "http://api.buckybox.local:3000/v1",
+    }.freeze
+
     class CachedResponse
       attr_reader :response, :cached_at
 
@@ -26,7 +32,7 @@ module BuckyBox
 
     include HTTParty
     format :json
-    base_uri "https://api.buckybox.com/v1"
+    base_uri ENDPOINTS.fetch(ENV.fetch("RAILS_ENV", "development").to_sym)
 
     def initialize(headers)
       self.class.headers(headers)
