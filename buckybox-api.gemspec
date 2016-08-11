@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "httparty", ">= 0.13.1"
-  spec.add_dependency "super_recursive_open_struct", ">= 1.0.2"
+  spec.add_dependency "hashie", ">= 3.4.4"
   spec.add_dependency "crazy_money", ">= 1.4.0"
 
   spec.add_development_dependency "bundler"

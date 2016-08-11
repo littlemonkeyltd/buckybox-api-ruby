@@ -1,7 +1,7 @@
 require "cgi"
 require "httparty"
 require "crazy_money"
-require "super_recursive_open_struct"
+require "hashie/mash"
 
 module BuckyBox
   class API
@@ -14,6 +14,18 @@ module BuckyBox
       development: "http://api.buckybox.local:3000/v1",
       test:        "http://api.buckybox.local:3000/v1",
     }.freeze
+
+    class Response < Hashie::Mash
+      def initialize(hash)
+        unless hash.is_a?(Hash)
+          raise ArgumentError, "#{hash.inspect} must be a Hash"
+        end
+
+        super(hash, nil) do |object, key|
+          raise NoMethodError, "undefined method `#{key}' for #{object}"
+        end
+      end
+    end
 
     class CachedResponse
       attr_reader :response, :cached_at
@@ -114,7 +126,11 @@ module BuckyBox
       hash = query_cache(type, uri, params, types)
 
       if options[:as_object]
-        Response.new(hash)
+        if hash.is_a?(Array)
+          hash.map { |item| Response.new(item) }
+        else
+          Response.new(hash)
+        end
       else
         hash
       end.freeze

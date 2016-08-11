@@ -21,7 +21,7 @@ RSpec.describe BuckyBox::API, :vcr do
     let(:response) { subject }
 
     specify { expect { response }.not_to raise_error }
-    specify { expect(response).to be_an_instance_of SuperRecursiveOpenStruct }
+    specify { expect(response).to be_an_instance_of BuckyBox::API::Response }
   end
 
   shared_examples_for "an invalid API response" do
