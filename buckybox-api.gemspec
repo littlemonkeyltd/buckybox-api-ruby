@@ -19,11 +19,11 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "httparty", ">= 0.13.1"
   spec.add_dependency "super_recursive_open_struct", ">= 1.0.2"
-  spec.add_dependency "crazy_money", ">= 1.2.1"
+  spec.add_dependency "crazy_money", ">= 1.4.0"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
-  spec.add_development_dependency "rspec", ">= 3"
+  spec.add_development_dependency "rspec", ">= 3.5"
   spec.add_development_dependency "vcr"
   spec.add_development_dependency "webmock"
   spec.add_development_dependency "simplecov", ">= 0.9"
