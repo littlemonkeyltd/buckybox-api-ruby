@@ -65,7 +65,7 @@ RSpec.configure do |config|
     # Use the documentation formatter for detailed output,
     # unless a formatter has already been configured
     # (e.g. via a command-line flag).
-    config.default_formatter = 'doc'
+    config.default_formatter = "doc"
   end
 
   # Print the 10 slowest examples and example groups at the
@@ -88,10 +88,9 @@ end
 
 require "vcr"
 VCR.configure do |c|
-  c.cassette_library_dir = 'fixtures'
+  c.cassette_library_dir = "fixtures"
   c.hook_into :webmock
   c.configure_rspec_metadata!
-  c.filter_sensitive_data('<API-Key>') { ENV.fetch("BUCKYBOX_API_KEY") }
-  c.filter_sensitive_data('<API-Secret>') { ENV.fetch("BUCKYBOX_API_SECRET") }
+  c.filter_sensitive_data("<API-Key>") { ENV.fetch("BUCKYBOX_API_KEY") }
+  c.filter_sensitive_data("<API-Secret>") { ENV.fetch("BUCKYBOX_API_SECRET") }
 end
-

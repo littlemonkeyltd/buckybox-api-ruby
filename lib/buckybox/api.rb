@@ -39,11 +39,11 @@ module BuckyBox
       self.class.headers(headers)
     end
 
-    def boxes(params = {embed: "images"}, options = {})
+    def boxes(params = { embed: "images" }, options = {})
       query :get, "/boxes", params, options, price: CrazyMoney
     end
 
-    def box(id, params = {embed: "extras,images,box_items"}, options = {})
+    def box(id, params = { embed: "extras,images,box_items" }, options = {})
       query :get, "/boxes/#{id}", params, options, price: CrazyMoney
     end
 
@@ -74,7 +74,7 @@ module BuckyBox
     def create_or_update_customer(json_customer)
       customer = JSON.parse(json_customer)
 
-      if customer['id']
+      if customer["id"]
         query :put, "/customers/#{customer['id']}", json_customer # TODO: replace by :patch
       else
         query :post, "/customers", json_customer
@@ -108,26 +108,26 @@ module BuckyBox
 
     def query(type, uri, params = {}, options = {}, types = {})
       options = {
-        as_object: true
+        as_object: true,
       }.merge(options)
 
       hash = query_cache(type, uri, params, types)
 
       if options[:as_object]
-        SuperRecursiveOpenStruct.new(hash)
+        Response.new(hash)
       else
         hash
       end.freeze
     end
 
     def query_cache(type, uri, params, types)
-      query_fresh = -> {
+      query_fresh = lambda do
         params_key = (type == :get ? :query : :body)
         response = self.class.public_send(type, uri, params_key => params)
         check_response!(response)
         parsed_response = response.parsed_response
         add_types(parsed_response, types)
-      }
+      end
 
       if type == :get # NOTE: only cache GET method
         @cache ||= {}
@@ -163,7 +163,7 @@ module BuckyBox
 
     def to_query(hash)
       if hash.empty?
-        ''
+        ""
       else
         hash.map do |key, value|
           "#{CGI.escape(key.to_s)}=#{CGI.escape(value)}"

@@ -1,5 +1,5 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.version       = "1.6.2"
   spec.authors       = ["Cédric Félizard"]
   spec.email         = ["cedric@felizard.fr"]
-  spec.summary       = %q{RubyGem wrapper for the Bucky Box API}
+  spec.summary       = "RubyGem wrapper for the Bucky Box API"
   spec.description   = "#{spec.summary} - https://api.buckybox.com/docs"
   spec.homepage      = ""
   spec.license       = "LGPLv3"
@@ -26,5 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", ">= 3.5"
   spec.add_development_dependency "vcr"
   spec.add_development_dependency "webmock"
-  spec.add_development_dependency "simplecov", ">= 0.9"
+  spec.add_development_dependency "simplecov", ">= 0.11"
+  spec.add_development_dependency "rubocop"
 end
