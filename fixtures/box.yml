@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.buckybox.com/v1/boxes/217?embed=extras,images,box_items
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Api-Key:
+      - "<API-Key>"
+      Api-Secret:
+      - "<API-Secret>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 11 Aug 2016 11:17:09 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"3700ae9295ab1e6ad673d0dfe473f0a0"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Origin
+      Content-Security-Policy:
+      - default-src 'none'; connect-src 'self' api.buckybox.com *.google-analytics.com
+        *.intercomcdn.com *.intercom.io wss://*.intercom.io; form-action 'self' www.paypal.com;
+        frame-ancestors 'none'; img-src 'self' *.google-analytics.com *.pingdom.net
+        *.pingdom.com *.intercomcdn.com *.intercomassets.com *.intercom.io *.tile.openstreetmap.org;
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' *.google-analytics.com *.pingdom.net
+        js-agent.newrelic.com bam.nr-data.net *.intercomcdn.com *.intercom.io; style-src
+        'self' 'unsafe-inline'; report-uri https://api.buckybox.com/v1/csp-report
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - DENY
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"id":217,"name":"5kg Box","description":"Our delicious brekky box
+        is chocked full of tasty treats for the weekend! <a href=\"http://www.johnsfarm.com\"
+        target=\"_blank\">From John''s farm</a>\r\n\r\nIncluded:\r\nBacon, English
+        Muffins, Organic Free Range Eggs x6, Orange Juice, Milk & Coffee.","extras_limit":-1,"exclusions_limit":3,"dislikes":true,"substitutions_limit":2,"likes":true,"customizable":true,"extras_allowed":true,"extras_unlimited":true,"exclusions_unlimited":false,"substitutions_unlimited":false,"price":"30.00","updated_at":1466419390,"cache_key":"61a75c10ce6428d8f51cf7e40ee72738888e3f7b4c8d5cd588a70a61e92ad4b5"}'
+    http_version: 
+  recorded_at: Thu, 11 Aug 2016 11:17:09 GMT
+recorded_with: VCR 3.0.3

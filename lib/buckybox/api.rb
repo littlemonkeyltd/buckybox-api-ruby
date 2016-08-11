@@ -12,7 +12,7 @@ module BuckyBox
       production:  "https://api.buckybox.com/v1",
       staging:     "https://api-staging.buckybox.com/v1",
       development: "http://api.buckybox.local:3000/v1",
-      test:        "http://api.buckybox.local:3000/v1",
+      test:        "https://api.buckybox.com/v1",
     }.freeze
 
     class Response < Hashie::Mash
@@ -46,6 +46,10 @@ module BuckyBox
     include HTTParty
     format :json
     base_uri ENDPOINTS.fetch(ENV.fetch("RAILS_ENV", "production").to_sym)
+
+    def self.fixtures_path
+      File.expand_path("../../../fixtures", __FILE__)
+    end
 
     def initialize(headers)
       self.class.headers(headers)

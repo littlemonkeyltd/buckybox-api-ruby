@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.buckybox.com/v1/customers
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Api-Key:
+      - "<API-Key>"
+      Api-Secret:
+      - "<API-Secret>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 11 Aug 2016 11:17:12 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"c7629f19a7f202c452bcb56a91d6cf38"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Origin
+      Content-Security-Policy:
+      - default-src 'none'; connect-src 'self' api.buckybox.com *.google-analytics.com
+        *.intercomcdn.com *.intercom.io wss://*.intercom.io; form-action 'self' www.paypal.com;
+        frame-ancestors 'none'; img-src 'self' *.google-analytics.com *.pingdom.net
+        *.pingdom.com *.intercomcdn.com *.intercomassets.com *.intercom.io *.tile.openstreetmap.org;
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' *.google-analytics.com *.pingdom.net
+        js-agent.newrelic.com bam.nr-data.net *.intercomcdn.com *.intercom.io; style-src
+        'self' 'unsafe-inline'; report-uri https://api.buckybox.com/v1/csp-report
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - DENY
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '[{"id":8439,"first_name":"Peter","last_name":"Bruce","name":"Peter
+        Bruce","email":"pete@buckybox.com","delivery_service_id":492,"halted?":false,"discount?":true,"discount":0.1,"number":"0429","account_balance":"-127.20","webstore_id":"fantastic-vege-people","webstore_name":"Fantastic
+        Organic Demo"},{"id":21154,"first_name":"Joe","last_name":null,"name":"Joe","email":"joe@example.net","delivery_service_id":91,"halted?":false,"discount?":false,"discount":0.0,"number":"0528","account_balance":"0.00","webstore_id":"fantastic-vege-people","webstore_name":"Fantastic
+        Organic Demo"}]'
+    http_version: 
+  recorded_at: Thu, 11 Aug 2016 11:17:12 GMT
+recorded_with: VCR 3.0.3

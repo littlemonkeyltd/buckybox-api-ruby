@@ -3,14 +3,18 @@ require_relative "../../../lib/buckybox/api"
 RSpec.describe BuckyBox::API, :vcr do
   let(:api) do
     BuckyBox::API.new(
-      "API-Key" => ENV.fetch("BUCKYBOX_API_KEY"),
-      "API-Secret" => ENV.fetch("BUCKYBOX_API_SECRET"),
+      "API-Key" => ENV.fetch("BUCKYBOX_API_KEY", ""),
+      "API-Secret" => ENV.fetch("BUCKYBOX_API_SECRET", ""),
     )
   end
 
+  let(:box_id) { 217 }
+  let(:delivery_service_id) { 91 }
+  let(:customer_id) { 8859 }
+
   before do
     method = self.class.metadata[:parent_example_group][:description][1..-1]
-    VCR.insert_cassette("/#{method}", record: :once)
+    VCR.insert_cassette "/#{method}"
   end
 
   after do
@@ -21,15 +25,7 @@ RSpec.describe BuckyBox::API, :vcr do
     let(:response) { subject }
 
     specify { expect { response }.not_to raise_error }
-    specify { expect(response).to be_an_instance_of BuckyBox::API::Response }
-  end
-
-  shared_examples_for "an invalid API response" do
-    let(:response) { subject }
-
-    it "returns an error when posting invalid params" do
-      expect { response }.to raise_error BuckyBox::API::ResponseError
-    end
+    specify { expect([BuckyBox::API::Response, Array]).to include response.class }
   end
 
   describe "#boxes" do
@@ -38,12 +34,8 @@ RSpec.describe BuckyBox::API, :vcr do
   end
 
   describe "#box" do
-    subject { api.box(ENV.fetch("BUCKYBOX_BOX_ID"), {}) }
+    subject { api.box(box_id) }
     it_behaves_like "a valid API response"
-
-    it "raises NotFoundError if not found" do
-      expect { api.box(0) }.to raise_error BuckyBox::API::NotFoundError
-    end
   end
 
   describe "#delivery_services" do
@@ -52,7 +44,7 @@ RSpec.describe BuckyBox::API, :vcr do
   end
 
   describe "#delivery_service" do
-    subject { api.delivery_service(ENV.fetch("BUCKYBOX_DELIVERY_SERVICE_ID")) }
+    subject { api.delivery_service(delivery_service_id) }
     it_behaves_like "a valid API response"
   end
 
@@ -67,7 +59,7 @@ RSpec.describe BuckyBox::API, :vcr do
   end
 
   describe "#customer" do
-    subject { api.customer(ENV.fetch("BUCKYBOX_CUSTOMER_ID")) }
+    subject { api.customer(customer_id) }
     it_behaves_like "a valid API response"
   end
 
@@ -77,12 +69,30 @@ RSpec.describe BuckyBox::API, :vcr do
   end
 
   describe "#create_or_update_customer" do
-    subject { api.create_or_update_customer(JSON.dump({})) }
-    it_behaves_like "an invalid API response"
+    let(:customer) do
+      {
+        id: customer_id,
+        first_name: "Joe",
+      }
+    end
+
+    subject { api.create_or_update_customer(JSON.dump(customer)) }
+    it_behaves_like "a valid API response"
   end
 
   describe "#create_order" do
-    subject { api.create_order(JSON.dump({})) }
-    it_behaves_like "an invalid API response"
+    let(:order) do
+      {
+        customer_id: customer_id,
+        box_id: box_id,
+        start_date: "2016-08-09",
+        week_days: [2],
+        frequency: "single",
+        payment_method: "cash_on_delivery",
+      }
+    end
+
+    subject { api.create_order(JSON.dump(order)) }
+    it_behaves_like "a valid API response"
   end
 end

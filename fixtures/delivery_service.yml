@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.buckybox.com/v1/delivery_services/91
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Api-Key:
+      - "<API-Key>"
+      Api-Secret:
+      - "<API-Secret>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 11 Aug 2016 11:17:16 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"29f029d7c4388719ac8fdd17a6f4c836"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Origin
+      Content-Security-Policy:
+      - default-src 'none'; connect-src 'self' api.buckybox.com *.google-analytics.com
+        *.intercomcdn.com *.intercom.io wss://*.intercom.io; form-action 'self' www.paypal.com;
+        frame-ancestors 'none'; img-src 'self' *.google-analytics.com *.pingdom.net
+        *.pingdom.com *.intercomcdn.com *.intercomassets.com *.intercom.io *.tile.openstreetmap.org;
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' *.google-analytics.com *.pingdom.net
+        js-agent.newrelic.com bam.nr-data.net *.intercomcdn.com *.intercom.io; style-src
+        'self' 'unsafe-inline'; report-uri https://api.buckybox.com/v1/csp-report
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - DENY
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"id":91,"name":"Courier (All Regions)","instructions":"Choose this Route for all regions outside of X, X and X\r\n\r\nWe delivery at 10:00 - 14:00.\r\nIf you''re not home, we will leave the box out of direct sunlight.","name_days_and_fee":"Courier (All Regions) - Mon, Tue, Wed, Thu, Fri - £5.00","pickup_point":false,"start_dates":[["Mon - Aug 15, 2016","2016-08-15",{"data-weekday":"mon"}],["Tue - Aug 16, 2016","2016-08-16",{"data-weekday":"tue"}],["Wed - Aug 17, 2016","2016-08-17",{"data-weekday":"wed"}],["Thu - Aug 18, 2016","2016-08-18",{"data-weekday":"thu"}],["Fri - Aug 19, 2016","2016-08-19",{"data-weekday":"fri"}],["Mon - Aug 22, 2016","2016-08-22",{"data-weekday":"mon"}],["Tue - Aug 23, 2016","2016-08-23",{"data-weekday":"tue"}],["Wed - Aug 24, 2016","2016-08-24",{"data-weekday":"wed"}],["Thu - Aug 25, 2016","2016-08-25",{"data-weekday":"thu"}],["Fri - Aug 26, 2016","2016-08-26",{"data-weekday":"fri"}],["Mon - Aug 29, 2016","2016-08-29",{"data-weekday":"mon"}],["Tue - Aug 30, 2016","2016-08-30",{"data-weekday":"tue"}],["Wed - Aug 31, 2016","2016-08-31",{"data-weekday":"wed"}],["Thu - Sep 1, 2016","2016-09-01",{"data-weekday":"thu"}],["Fri - Sep 2, 2016","2016-09-02",{"data-weekday":"fri"}],["Mon - Sep 5, 2016","2016-09-05",{"data-weekday":"mon"}],["Tue - Sep 6, 2016","2016-09-06",{"data-weekday":"tue"}],["Wed - Sep 7, 2016","2016-09-07",{"data-weekday":"wed"}],["Thu - Sep 8, 2016","2016-09-08",{"data-weekday":"thu"}],["Fri - Sep 9, 2016","2016-09-09",{"data-weekday":"fri"}],["Mon - Sep 12, 2016","2016-09-12",{"data-weekday":"mon"}],["Tue - Sep 13, 2016","2016-09-13",{"data-weekday":"tue"}],["Wed - Sep 14, 2016","2016-09-14",{"data-weekday":"wed"}],["Thu - Sep 15, 2016","2016-09-15",{"data-weekday":"thu"}],["Fri - Sep 16, 2016","2016-09-16",{"data-weekday":"fri"}],["Mon - Sep 19, 2016","2016-09-19",{"data-weekday":"mon"}],["Tue - Sep 20, 2016","2016-09-20",{"data-weekday":"tue"}],["Wed - Sep 21, 2016","2016-09-21",{"data-weekday":"wed"}],["Thu - Sep 22, 2016","2016-09-22",{"data-weekday":"thu"}],["Fri - Sep 23, 2016","2016-09-23",{"data-weekday":"fri"}],["Mon - Sep 26, 2016","2016-09-26",{"data-weekday":"mon"}],["Tue - Sep 27, 2016","2016-09-27",{"data-weekday":"tue"}],["Wed - Sep 28, 2016","2016-09-28",{"data-weekday":"wed"}],["Thu - Sep 29, 2016","2016-09-29",{"data-weekday":"thu"}],["Fri - Sep 30, 2016","2016-09-30",{"data-weekday":"fri"}],["Mon - Oct 3, 2016","2016-10-03",{"data-weekday":"mon"}],["Tue - Oct 4, 2016","2016-10-04",{"data-weekday":"tue"}],["Wed - Oct 5, 2016","2016-10-05",{"data-weekday":"wed"}],["Thu - Oct 6, 2016","2016-10-06",{"data-weekday":"thu"}],["Fri - Oct 7, 2016","2016-10-07",{"data-weekday":"fri"}],["Mon - Oct 10, 2016","2016-10-10",{"data-weekday":"mon"}],["Tue - Oct 11, 2016","2016-10-11",{"data-weekday":"tue"}],["Wed - Oct 12, 2016","2016-10-12",{"data-weekday":"wed"}],["Thu - Oct 13, 2016","2016-10-13",{"data-weekday":"thu"}],["Fri - Oct 14, 2016","2016-10-14",{"data-weekday":"fri"}],["Mon - Oct 17, 2016","2016-10-17",{"data-weekday":"mon"}],["Tue - Oct 18, 2016","2016-10-18",{"data-weekday":"tue"}],["Wed - Oct 19, 2016","2016-10-19",{"data-weekday":"wed"}],["Thu - Oct 20, 2016","2016-10-20",{"data-weekday":"thu"}],["Fri - Oct 21, 2016","2016-10-21",{"data-weekday":"fri"}],["Mon - Oct 24, 2016","2016-10-24",{"data-weekday":"mon"}],["Tue - Oct 25, 2016","2016-10-25",{"data-weekday":"tue"}],["Wed - Oct 26, 2016","2016-10-26",{"data-weekday":"wed"}],["Thu - Oct 27, 2016","2016-10-27",{"data-weekday":"thu"}],["Fri - Oct 28, 2016","2016-10-28",{"data-weekday":"fri"}],["Mon - Oct 31, 2016","2016-10-31",{"data-weekday":"mon"}],["Tue - Nov 1, 2016","2016-11-01",{"data-weekday":"tue"}],["Wed - Nov 2, 2016","2016-11-02",{"data-weekday":"wed"}],["Thu - Nov 3, 2016","2016-11-03",{"data-weekday":"thu"}],["Fri - Nov 4, 2016","2016-11-04",{"data-weekday":"fri"}],["Mon - Nov 7, 2016","2016-11-07",{"data-weekday":"mon"}],["Tue - Nov 8, 2016","2016-11-08",{"data-weekday":"tue"}],["Wed - Nov 9, 2016","2016-11-09",{"data-weekday":"wed"}],["Thu - Nov 10, 2016","2016-11-10",{"data-weekday":"thu"}],["Fri - Nov 11, 2016","2016-11-11",{"data-weekday":"fri"}],["Mon - Nov 14, 2016","2016-11-14",{"data-weekday":"mon"}],["Tue - Nov 15, 2016","2016-11-15",{"data-weekday":"tue"}],["Wed - Nov 16, 2016","2016-11-16",{"data-weekday":"wed"}],["Thu - Nov 17, 2016","2016-11-17",{"data-weekday":"thu"}],["Fri - Nov 18, 2016","2016-11-18",{"data-weekday":"fri"}],["Mon - Nov 21, 2016","2016-11-21",{"data-weekday":"mon"}],["Tue - Nov 22, 2016","2016-11-22",{"data-weekday":"tue"}],["Wed - Nov 23, 2016","2016-11-23",{"data-weekday":"wed"}],["Thu - Nov 24, 2016","2016-11-24",{"data-weekday":"thu"}],["Fri - Nov 25, 2016","2016-11-25",{"data-weekday":"fri"}],["Mon - Nov 28, 2016","2016-11-28",{"data-weekday":"mon"}],["Tue - Nov 29, 2016","2016-11-29",{"data-weekday":"tue"}],["Wed - Nov 30, 2016","2016-11-30",{"data-weekday":"wed"}],["Thu - Dec 1, 2016","2016-12-01",{"data-weekday":"thu"}],["Fri - Dec 2, 2016","2016-12-02",{"data-weekday":"fri"}],["Mon - Dec 5, 2016","2016-12-05",{"data-weekday":"mon"}],["Tue - Dec 6, 2016","2016-12-06",{"data-weekday":"tue"}],["Wed - Dec 7, 2016","2016-12-07",{"data-weekday":"wed"}],["Thu - Dec 8, 2016","2016-12-08",{"data-weekday":"thu"}],["Fri - Dec 9, 2016","2016-12-09",{"data-weekday":"fri"}],["Mon - Dec 12, 2016","2016-12-12",{"data-weekday":"mon"}],["Tue - Dec 13, 2016","2016-12-13",{"data-weekday":"tue"}],["Wed - Dec 14, 2016","2016-12-14",{"data-weekday":"wed"}],["Thu - Dec 15, 2016","2016-12-15",{"data-weekday":"thu"}],["Fri - Dec 16, 2016","2016-12-16",{"data-weekday":"fri"}],["Mon - Dec 19, 2016","2016-12-19",{"data-weekday":"mon"}],["Tue - Dec 20, 2016","2016-12-20",{"data-weekday":"tue"}],["Wed - Dec 21, 2016","2016-12-21",{"data-weekday":"wed"}],["Thu - Dec 22, 2016","2016-12-22",{"data-weekday":"thu"}],["Fri - Dec 23, 2016","2016-12-23",{"data-weekday":"fri"}],["Mon - Dec 26, 2016","2016-12-26",{"data-weekday":"mon"}],["Tue - Dec 27, 2016","2016-12-27",{"data-weekday":"tue"}],["Wed - Dec 28, 2016","2016-12-28",{"data-weekday":"wed"}],["Thu - Dec 29, 2016","2016-12-29",{"data-weekday":"thu"}],["Fri - Dec 30, 2016","2016-12-30",{"data-weekday":"fri"}],["Mon - Jan 2, 2017","2017-01-02",{"data-weekday":"mon"}],["Tue - Jan 3, 2017","2017-01-03",{"data-weekday":"tue"}],["Wed - Jan 4, 2017","2017-01-04",{"data-weekday":"wed"}],["Thu - Jan 5, 2017","2017-01-05",{"data-weekday":"thu"}],["Fri - Jan 6, 2017","2017-01-06",{"data-weekday":"fri"}],["Mon - Jan 9, 2017","2017-01-09",{"data-weekday":"mon"}],["Tue - Jan 10, 2017","2017-01-10",{"data-weekday":"tue"}],["Wed - Jan 11, 2017","2017-01-11",{"data-weekday":"wed"}],["Thu - Jan 12, 2017","2017-01-12",{"data-weekday":"thu"}],["Fri - Jan 13, 2017","2017-01-13",{"data-weekday":"fri"}],["Mon - Jan 16, 2017","2017-01-16",{"data-weekday":"mon"}],["Tue - Jan 17, 2017","2017-01-17",{"data-weekday":"tue"}],["Wed - Jan 18, 2017","2017-01-18",{"data-weekday":"wed"}],["Thu - Jan 19, 2017","2017-01-19",{"data-weekday":"thu"}],["Fri - Jan 20, 2017","2017-01-20",{"data-weekday":"fri"}],["Mon - Jan 23, 2017","2017-01-23",{"data-weekday":"mon"}],["Tue - Jan 24, 2017","2017-01-24",{"data-weekday":"tue"}],["Wed - Jan 25, 2017","2017-01-25",{"data-weekday":"wed"}],["Thu - Jan 26, 2017","2017-01-26",{"data-weekday":"thu"}],["Fri - Jan 27, 2017","2017-01-27",{"data-weekday":"fri"}],["Mon - Jan 30, 2017","2017-01-30",{"data-weekday":"mon"}],["Tue - Jan 31, 2017","2017-01-31",{"data-weekday":"tue"}],["Wed - Feb 1, 2017","2017-02-01",{"data-weekday":"wed"}],["Thu - Feb 2, 2017","2017-02-02",{"data-weekday":"thu"}],["Fri - Feb 3, 2017","2017-02-03",{"data-weekday":"fri"}],["Mon - Feb 6, 2017","2017-02-06",{"data-weekday":"mon"}],["Tue - Feb 7, 2017","2017-02-07",{"data-weekday":"tue"}],["Wed - Feb 8, 2017","2017-02-08",{"data-weekday":"wed"}],["Thu - Feb 9, 2017","2017-02-09",{"data-weekday":"thu"}],["Fri - Feb 10, 2017","2017-02-10",{"data-weekday":"fri"}]],"sun":false,"mon":true,"tue":true,"wed":true,"thu":true,"fri":true,"sat":false,"fee":"5.00","dates_grid":[[["Sun",0],["Mon",1],["Tue",2],["Wed",3],["Thu",4],["Fri",5],["Sat",6]],[["Sun",7],["Mon",8],["Tue",9],["Wed",10],["Thu",11],["Fri",12],["Sat",13]],[["Sun",14],["Mon",15],["Tue",16],["Wed",17],["Thu",18],["Fri",19],["Sat",20]],[["Sun",21],["Mon",22],["Tue",23],["Wed",24],["Thu",25],["Fri",26],["Sat",27]]],"cache_key":"6436c74901143c290941d608607651c95f292d3649b425bd0582ffddf6ae942c"}'
+    http_version: 
+  recorded_at: Thu, 11 Aug 2016 11:17:16 GMT
+recorded_with: VCR 3.0.3

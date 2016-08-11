@@ -88,9 +88,17 @@ end
 
 require "vcr"
 VCR.configure do |c|
+  c.configure_rspec_metadata!
   c.cassette_library_dir = "fixtures"
   c.hook_into :webmock
-  c.configure_rspec_metadata!
-  c.filter_sensitive_data("<API-Key>") { ENV.fetch("BUCKYBOX_API_KEY") }
-  c.filter_sensitive_data("<API-Secret>") { ENV.fetch("BUCKYBOX_API_SECRET") }
+  c.default_cassette_options = {
+    record: :once, # NOTE: change to :all to refresh cassettes
+  }
+  c.filter_sensitive_data("<API-Key>")    { ENV.key("BUCKYBOX_API_KEY") }
+  c.filter_sensitive_data("<API-Secret>") { ENV.key("BUCKYBOX_API_SECRET") }
+  c.before_record do |interaction|
+    %w(Server Set-Cookie X-Request-Id X-Runtime X-Rack-Cache).each do |header|
+      interaction.response.headers.delete(header)
+    end
+  end
 end

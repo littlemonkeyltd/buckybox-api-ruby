@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.buckybox.com/v1/webstore
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Api-Key:
+      - "<API-Key>"
+      Api-Secret:
+      - "<API-Secret>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 11 Aug 2016 11:17:12 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"a5fe3a149c12381fff3c8266e8e9b532"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Origin
+      Content-Security-Policy:
+      - default-src 'none'; connect-src 'self' api.buckybox.com *.google-analytics.com
+        *.intercomcdn.com *.intercom.io wss://*.intercom.io; form-action 'self' www.paypal.com;
+        frame-ancestors 'none'; img-src 'self' *.google-analytics.com *.pingdom.net
+        *.pingdom.com *.intercomcdn.com *.intercomassets.com *.intercom.io *.tile.openstreetmap.org;
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' *.google-analytics.com *.pingdom.net
+        js-agent.newrelic.com bam.nr-data.net *.intercomcdn.com *.intercom.io; style-src
+        'self' 'unsafe-inline'; report-uri https://api.buckybox.com/v1/csp-report
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - DENY
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"name":"Fantastic Organic Demo","locale":"en","currency":"GBP","time_zone":"London","city":"London","sidebar_description":"The
+        Fantastic Vege People are a mythic being from Bucky Box Land.\r\n\r\nThey''re
+        an example of how easy it is to operate local food distribution enterprises.  \r\n\r\nHere''s
+        to catalysing a local food revolution!\r\nOur boxes are Nom Nom Nom.\r\n\r\nYou
+        can customise any information in these fields from within the admin console
+        in the Settings Page.\r\n\r\n<a href=\"https://store.buckybox.com/\" target=\"_blank\">Bucky
+        Box Global Directory</a>","facebook_url":"www.facebook.com/buckybox","phone":"","email":"demo@buckybox.com","line_items":[{"created_at":"2013-10-18T00:36:20+01:00","distributor_id":18,"id":2497,"name":"Apple
+        (Pacific Rose)","updated_at":"2013-10-18T00:36:20+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":240,"name":"Apple
+        (Red)","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":237,"name":"Banana
+        (Fairtrade)","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2013-12-16T00:33:00+00:00","distributor_id":18,"id":4036,"name":"Basi2","updated_at":"2013-12-16T00:33:00+00:00"},{"created_at":"2012-08-27T05:20:09+01:00","distributor_id":18,"id":247,"name":"Beetroot","updated_at":"2012-08-27T05:20:09+01:00"},{"created_at":"2012-09-14T13:50:37+01:00","distributor_id":18,"id":270,"name":"Bok
+        Choy","updated_at":"2012-09-14T13:50:37+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":228,"name":"Broccoli","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-09-14T13:50:37+01:00","distributor_id":18,"id":268,"name":"Broccoliflower","updated_at":"2012-09-14T13:50:37+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":241,"name":"Butternut
+        Squash","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":226,"name":"Cabbage","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":227,"name":"Carrot","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":242,"name":"Celeriac","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":243,"name":"Celery","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":229,"name":"Chard","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":231,"name":"Coriander","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":236,"name":"Orange","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-08-27T05:20:09+01:00","distributor_id":18,"id":246,"name":"Peas","updated_at":"2012-08-27T05:20:09+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":244,"name":"Plum","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":234,"name":"Potato","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":238,"name":"Pumpkin","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":230,"name":"Rocket","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":225,"name":"Silverbeet","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-08-27T05:20:09+01:00","distributor_id":18,"id":249,"name":"Spinach","updated_at":"2012-08-27T05:20:09+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":245,"name":"Sugar
+        Snaps","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":235,"name":"Sweet
+        Potato","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-08-27T05:20:08+01:00","distributor_id":18,"id":233,"name":"Tomato","updated_at":"2012-08-27T05:20:08+01:00"},{"created_at":"2012-09-14T13:50:37+01:00","distributor_id":18,"id":269,"name":"Yams","updated_at":"2012-09-14T13:50:37+01:00"}],"payment_options":[["Cash
+        on Delivery","cash_on_delivery"],["Bank Deposit","bank_deposit"]],"email_customer_on_new_webstore_order":true,"paypal_email":"pp@buckybox.com","ga_tracking_id":"","require_phone":true,"require_address_1":true,"require_address_2":false,"require_suburb":false,"require_city":false,"require_postcode":false,"require_delivery_note":false,"collect_phone":true,"collect_delivery_note":true,"active":true,"bank_information":{"bank_name":"The
+        Community Bank","account_name":"Vege People","account_number":"Sort Code:
+        112233\nAccount Number: 1234567","customer_message":"Please make payment <strong>3
+        days</strong> before your delivery to allow time for bank deposits to register."},"id":"fantastic-vege-people","company_logo":"//my.buckybox.com/system/uploads/distributor/company_logo/18/banner_bucky-demo.jpg","company_team_image":"//my.buckybox.com/system/uploads/distributor/company_team_image/18/photo_bucky-demo.jpg","cod_payment_message":"Please
+        place full payment in the mailbox"}'
+    http_version: 
+  recorded_at: Thu, 11 Aug 2016 11:17:12 GMT
+recorded_with: VCR 3.0.3

@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.buckybox.com/v1/customers/sign_in
+    body:
+      encoding: UTF-8
+      string: email=joe%40example.net&password=nope
+    headers:
+      Api-Key:
+      - "<API-Key>"
+      Api-Secret:
+      - "<API-Secret>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 11 Aug 2016 11:17:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"d751713988987e9331980363e24189ce"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Origin
+      Content-Security-Policy:
+      - default-src 'none'; connect-src 'self' api.buckybox.com *.google-analytics.com
+        *.intercomcdn.com *.intercom.io wss://*.intercom.io; form-action 'self' www.paypal.com;
+        frame-ancestors 'none'; img-src 'self' *.google-analytics.com *.pingdom.net
+        *.pingdom.com *.intercomcdn.com *.intercomassets.com *.intercom.io *.tile.openstreetmap.org;
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' *.google-analytics.com *.pingdom.net
+        js-agent.newrelic.com bam.nr-data.net *.intercomcdn.com *.intercom.io; style-src
+        'self' 'unsafe-inline'; report-uri https://api.buckybox.com/v1/csp-report
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - DENY
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: "[]"
+    http_version: 
+  recorded_at: Thu, 11 Aug 2016 11:17:13 GMT
+recorded_with: VCR 3.0.3
