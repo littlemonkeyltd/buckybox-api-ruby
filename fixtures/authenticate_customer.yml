@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.buckybox.com/v1/customers/sign_in
     body:
       encoding: UTF-8
-      string: email=joe%40example.net&password=nope
+      string: email=joe%40buckybox.com&password=whatever
     headers:
       Api-Key:
       - "<API-Key>"
@@ -54,7 +54,7 @@ http_interactions:
       - 1; mode=block
     body:
       encoding: UTF-8
-      string: "[]"
+      string: '[{"id":8859,"first_name":"Joe","last_name":"Dalton","name":"Joe Dalton","email":"joe@buckybox.com","delivery_service_id":91,"halted?":false,"discount?":false,"discount":0.0,"number":"0437","account_balance":"0.00","webstore_id":"fantastic-vege-people","webstore_name":"Fantastic Organic Demo"}]'
     http_version: 
   recorded_at: Thu, 11 Aug 2016 11:17:13 GMT
 recorded_with: VCR 3.0.3

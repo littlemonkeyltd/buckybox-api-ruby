@@ -93,6 +93,7 @@ VCR.configure do |c|
   c.hook_into :webmock
   c.default_cassette_options = {
     record: :once, # NOTE: change to :all to refresh cassettes
+    allow_playback_repeats: true,
   }
   c.filter_sensitive_data("<API-Key>")    { ENV.key("BUCKYBOX_API_KEY") }
   c.filter_sensitive_data("<API-Secret>") { ENV.key("BUCKYBOX_API_SECRET") }

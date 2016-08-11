@@ -54,17 +54,17 @@ RSpec.describe BuckyBox::API, :vcr do
   end
 
   describe "#customers" do
-    subject { api.customers }
+    subject { api.customers(email: "joe@buckybox.com") }
     it_behaves_like "a valid API response"
   end
 
   describe "#customer" do
-    subject { api.customer(customer_id) }
+    subject { api.customer(customer_id, embed: "address") }
     it_behaves_like "a valid API response"
   end
 
   describe "#authenticate_customer" do
-    subject { api.authenticate_customer(email: "joe@example.net", password: "nope") }
+    subject { api.authenticate_customer(email: "joe@buckybox.com", password: "nope") }
     it_behaves_like "a valid API response"
   end
 

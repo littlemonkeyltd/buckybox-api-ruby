@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.buckybox.com/v1/customers
+    uri: https://api.buckybox.com/v1/customers?email=joe@buckybox.com
     body:
       encoding: US-ASCII
       string: ''
@@ -54,10 +54,7 @@ http_interactions:
       - 1; mode=block
     body:
       encoding: UTF-8
-      string: '[{"id":8439,"first_name":"Peter","last_name":"Bruce","name":"Peter
-        Bruce","email":"pete@buckybox.com","delivery_service_id":492,"halted?":false,"discount?":true,"discount":0.1,"number":"0429","account_balance":"-127.20","webstore_id":"fantastic-vege-people","webstore_name":"Fantastic
-        Organic Demo"},{"id":21154,"first_name":"Joe","last_name":null,"name":"Joe","email":"joe@example.net","delivery_service_id":91,"halted?":false,"discount?":false,"discount":0.0,"number":"0528","account_balance":"0.00","webstore_id":"fantastic-vege-people","webstore_name":"Fantastic
-        Organic Demo"}]'
+      string: '[{"id":8859,"first_name":"Joe","last_name":"Dalton","name":"Joe Dalton","email":"joe@buckybox.com","delivery_service_id":492,"halted?":false,"discount?":false,"discount":0.0,"number":"0437","account_balance":"-153.40","webstore_id":"fantastic-vege-people","webstore_name":"Fantastic Organic Demo"}]'
     http_version: 
   recorded_at: Thu, 11 Aug 2016 11:17:12 GMT
 recorded_with: VCR 3.0.3
