@@ -1,5 +1,5 @@
 BuckyBox::API RubyGem
-Copyright (C) 2014 Bucky Box
+Copyright (C) 2014-2016 Bucky Box
 
 LGPLv3 License
 
