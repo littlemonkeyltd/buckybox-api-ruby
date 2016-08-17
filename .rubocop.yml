@@ -1,10 +1,16 @@
 Metrics:
   Enabled: false
 
+Lint/EndAlignment:
+  Enabled: false
+
 Style/AccessModifierIndentation:
   EnforcedStyle: outdent
 
 Style/Documentation:
+  Enabled: false
+
+Style/IndentationWidth:
   Enabled: false
 
 Style/ParallelAssignment:
@@ -12,6 +18,9 @@ Style/ParallelAssignment:
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+
+Style/ElseAlignment:
+  Enabled: false
 
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma

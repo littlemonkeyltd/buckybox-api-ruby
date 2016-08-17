@@ -109,7 +109,12 @@ module BuckyBox
 
     def check_response!(response)
       unless [200, 201].include? response.code
-        message = response.parsed_response["message"] || response.parsed_response
+        message = if response.parsed_response
+          response.parsed_response["message"] || response.parsed_response
+        else
+          "Empty response"
+        end
+
         message = "Error #{response.code} - #{message}"
 
         raise exception_type(response.code), message
