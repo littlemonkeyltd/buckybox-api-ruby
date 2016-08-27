@@ -53,7 +53,7 @@ module BuckyBox
     end
 
     def initialize(headers)
-      self.class.headers(headers)
+      self.class.headers(headers.merge("Accept-Encoding" => "gzip"))
     end
 
     def boxes(params = { embed: "images" }, options = {})
