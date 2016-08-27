@@ -1,7 +1,8 @@
 require "cgi"
-require "httparty"
 require "crazy_money"
 require "hashie/mash"
+require "oj"
+require "httparty"
 
 module BuckyBox
   class API
@@ -44,8 +45,8 @@ module BuckyBox
     end
 
     include HTTParty
-    format :json
     base_uri ENDPOINTS.fetch(ENV.fetch("RAILS_ENV", "production").to_sym)
+    parser ->(body, _) { Oj.load(body) }
 
     def self.fixtures_path
       File.expand_path("../../../fixtures", __FILE__)
@@ -88,7 +89,7 @@ module BuckyBox
     end
 
     def create_or_update_customer(json_customer)
-      customer = JSON.parse(json_customer)
+      customer = Oj.load(json_customer)
 
       if customer["id"]
         query :put, "/customers/#{customer['id']}", json_customer # TODO: replace by :patch

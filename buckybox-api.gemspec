@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "httparty", ">= 0.13.1"
   spec.add_dependency "hashie", ">= 3.4.4"
   spec.add_dependency "crazy_money", ">= 1.4.0"
+  spec.add_dependency "oj"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
