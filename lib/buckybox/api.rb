@@ -2,12 +2,12 @@ require "cgi"
 require "crazy_money"
 require "hashie/mash"
 require "oj"
-require "httparty"
+require "typhoeus"
 
 module BuckyBox
   class API
     ResponseError = Class.new(Exception) # generic error
-    NotFoundError = Class.new(Exception)
+    NotFoundError = Class.new(ResponseError)
 
     ENDPOINTS = {
       production:  "https://api.buckybox.com/v1",
@@ -29,14 +29,14 @@ module BuckyBox
     end
 
     class CachedResponse
-      attr_reader :response, :cached_at
+      attr_reader :response
 
       def initialize(response)
         @response, @cached_at = response, epoch
       end
 
       def expired?
-        epoch - cached_at > 60 # NOTE: cache responses for 60 seconds
+        epoch - @cached_at > 60 # NOTE: cache responses for 60 seconds
       end
 
       private def epoch
@@ -44,16 +44,13 @@ module BuckyBox
       end
     end
 
-    include HTTParty
-    base_uri ENDPOINTS.fetch(ENV.fetch("RAILS_ENV", "production").to_sym)
-    parser ->(body, _) { Oj.load(body) }
-
     def self.fixtures_path
       File.expand_path("../../../fixtures", __FILE__)
     end
 
     def initialize(headers)
-      self.class.headers(headers.merge("Accept-Encoding" => "gzip"))
+      @headers = headers.freeze
+      @endpoint = ENDPOINTS.fetch(ENV.fetch("RAILS_ENV", :production).to_sym)
     end
 
     def boxes(params = { embed: "images" }, options = {})
@@ -108,18 +105,21 @@ module BuckyBox
 
   private
 
-    def check_response!(response)
-      unless [200, 201].include? response.code
-        message = if response.parsed_response
-          response.parsed_response["message"] || response.parsed_response
-        else
-          "Empty response"
-        end
-
-        message = "Error #{response.code} - #{message}"
-
-        raise exception_type(response.code), message
+    def handle_error!(response)
+      parsed_response = parse_response(response)
+      message = if parsed_response
+        parsed_response["message"] || parsed_response
+      else
+        "Empty response"
       end
+
+      message = "Error #{response.code} - #{message}"
+
+      raise exception_type(response.code), message
+    end
+
+    def parse_response(response)
+      Oj.load(response.body)
     end
 
     def exception_type(http_code)
@@ -128,12 +128,9 @@ module BuckyBox
       }.fetch(http_code, ResponseError)
     end
 
-    def query(type, uri, params = {}, options = {}, types = {})
-      options = {
-        as_object: true,
-      }.merge(options)
-
-      hash = query_cache(type, uri, params, types)
+    def query(method, path, params = {}, options = {}, types = {})
+      options = { as_object: true }.merge(options)
+      hash = query_cache(method, path, params, types)
 
       if options[:as_object]
         if hash.is_a?(Array)
@@ -146,18 +143,28 @@ module BuckyBox
       end.freeze
     end
 
-    def query_cache(type, uri, params, types)
+    def query_cache(method, path, params, types)
+      uri = [@endpoint, path].join
+
       query_fresh = lambda do
-        params_key = (type == :get ? :query : :body)
-        response = self.class.public_send(type, uri, params_key => params)
-        check_response!(response)
-        parsed_response = response.parsed_response
+        params_key = (method == :get ? :params : :body)
+
+        response = Typhoeus::Request.new(
+          uri,
+          headers: @headers,
+          method: method,
+          params_key => params,
+          accept_encoding: "gzip",
+        ).run
+
+        handle_error!(response) unless response.success?
+        parsed_response = parse_response(response)
         add_types(parsed_response, types)
       end
 
-      if type == :get # NOTE: only cache GET method
+      if method == :get # NOTE: only cache GET method
         @cache ||= {}
-        cache_key = [self.class.headers.hash, uri, to_query(params)].join
+        cache_key = [@headers.hash, uri, to_query(params)].join
         cached_response = @cache[cache_key]
 
         if cached_response && !cached_response.expired?
