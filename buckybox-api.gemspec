@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["cedric@felizard.fr"]
   spec.summary       = "RubyGem wrapper for the Bucky Box API"
   spec.description   = "#{spec.summary} - https://api.buckybox.com/docs"
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/buckybox/buckybox-api-ruby"
   spec.license       = "LGPLv3"
 
   spec.files         = `git ls-files -z`.split("\x0")
