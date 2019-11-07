@@ -10,9 +10,9 @@ module BuckyBox
     NotFoundError = Class.new(ResponseError)
 
     ENDPOINTS = {
-      production:  "https://api.buckybox.com/v1",
-      staging:     "https://api-staging.buckybox.com/v1",
-      development: "http://api.buckybox.local:3000/v1",
+      production:  "https://api.buckybox.appstack.me/v1",
+      staging:     "https://api-staging.buckybox.appstack.me/v1",
+      development: "http://api.buckybox.appstack.me/v1",
       test:        "https://api.buckybox.com/v1",
     }.freeze
 
