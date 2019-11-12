@@ -10,10 +10,10 @@ module BuckyBox
     NotFoundError = Class.new(ResponseError)
 
     ENDPOINTS = {
-      production:  "https://api.buckybox.appstack.me/v1",
-      staging:     "https://api-staging.buckybox.appstack.me/v1",
-      development: "http://api.buckybox.appstack.me/v1",
-      test:        "https://api.buckybox.com/v1",
+      production:  "https://api.homegrown.kiwi/v1",
+      staging:     "https://api-staging.homegrown.kiwi/v1",
+      development: "http://api.buckybox.homegrown.kiwi/v1",
+      test:        "https://api.homrgrown.kiwi/v1",
     }.freeze
 
     class Response < Hashie::Mash
