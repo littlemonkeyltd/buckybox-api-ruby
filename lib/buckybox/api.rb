@@ -13,7 +13,7 @@ module BuckyBox
       production:  "https://api.homegrown.kiwi/v1",
       staging:     "https://api-staging.homegrown.kiwi/v1",
       development: "http://api.buckybox.homegrown.kiwi/v1",
-      test:        "https://api.homrgrown.kiwi/v1",
+      test:        "https://api.homergrown.kiwi/v1",
     }.freeze
 
     class Response < Hashie::Mash
